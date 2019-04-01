@@ -1,0 +1,24 @@
+##### cronjob counter script
+check the lag time of the cronjob in servers
+
+use cron_status2.sh if you want to ssh to a particular server
+update value in VERIFY_SERVER=$(ssh user@yourserver 'date')
+
+crontab -e 
+#Cron monitor
+* * * * * cd /home/user/monitor_cron && ./cron_status.sh
+
+a file named counter and output.log will be created
+
+counter  cron_status2.sh  cron_status.sh  output.log
+
+$ more counter
+1554139141
+
+$ more output.log
+Tue Mar 13 21:37:01 PDT 2018 cron checked in 9 seconds early
+Tue Mar 13 21:38:01 PDT 2018 cron checked in right on time
+Tue Mar 13 21:39:01 PDT 2018 cron checked in right on time
+Tue Mar 13 21:40:01 PDT 2018 cron checked in right on time
+Tue Mar 13 21:41:01 PDT 2018 cron checked in right on time
+Tue Mar 13 21:42:01 PDT 2018 cron checked in 1 seconds early
